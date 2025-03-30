@@ -56,3 +56,42 @@ crossval_cindex(
   fdr_threshold = 0.1
 )
 ```
+
+## 📂 Output Directory
+
+Expected files in SMM_GenomicScore/:
+
+- `genomic_feature_stats.txt`: Genomic feature matrix (CNVs, SNVs, etc.)
+- `/plots/HR_barplot.pdf, HR_with_CI_plot.pdf, crossval_cindex_boxplot.pdf`: Cytogenetic feature matrix
+- `/km_plots/`: KM plots per feature
+- `/cox_analysis/`: Cox model summary and forest plot
+
+---
+
+## 📋 Requirements
+
+This package depends on:
+
+- `survival`
+- `survminer`
+- `forestmodel`
+- `caret`
+
+These will be installed automatically if missing.
+
+---
+
+## Citation
+Please cite our work if you use this package in your research. [Add citation here]
+
+---
+
+## 📬 Contact
+
+For questions or contributions, please open an issue or contact [your email / GitHub username].
+
+
+
+
+
+
