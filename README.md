@@ -44,7 +44,7 @@ head(class$class)
 ```
 
 ```r
-head(class$
+head(class$matrix)
 #    sample CNV_chr3.gain CNV_chr5.gain CNV_chr7.gain CNV_chr9.gain CNV_chr11.gain CNV_chr15.gain CNV_chr19.gain CNV_chr21.gain CNV_chr18.gain
 #1 Sample_1             1             1             0             1              1              1              1              0              0
 #2 Sample_2             0             0             0             1              0              0              0              0              0
