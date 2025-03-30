@@ -31,12 +31,44 @@ class <- SMM_TnT_Cla(
   cyto = "path/to/new_cyto_SMM_final.txt",
   assembly = "hg38"
 )
+```
+```r
+head(class$class)
+#    sample class.new
+#1 Sample_1     tumor
+#2 Sample_2 non_tumor
+#3 Sample_3     tumor
+#4 Sample_4     tumor
+#5 Sample_5     tumor
+#6 Sample_6     tumor
+```
 
+```r
+head(class$
+#    sample CNV_chr3.gain CNV_chr5.gain CNV_chr7.gain CNV_chr9.gain CNV_chr11.gain CNV_chr15.gain CNV_chr19.gain CNV_chr21.gain CNV_chr18.gain
+#1 Sample_1             1             1             0             1              1              1              1              0              0
+#2 Sample_2             0             0             0             1              0              0              0              0              0
+#3 Sample_3             0             0             0             0              0              0              0              0              0
+#4 Sample_4             1             1             1             1              1              1              1              1              0
+#5 Sample_5             1             1             0             1              0              1              1              0              0
+```
+
+```r
 # 2. Genomic Score Calculation
 clinic <- read.delim("path/to/clinic_SMM_bac.txt", stringsAsFactors = FALSE)
 CLINIC <- clinic[complete.cases(clinic$pfs_code) & clinic$treatment == "no", ]
+head(CLINIC)
+    sample pfs_code pfs_time disease_stage imwg radiology treatment cohort seq
+1 Sample_1        0       14           SMM    2         1       yes     C1 wgs
+2 Sample_2        0     1818          MGUS MGUS         1        no     C2 wes
+3 Sample_3        0     1178           SMM    2         1        no     C2 wes
+4 Sample_4        0     1316           SMM    1         1        no     C2 wes
+5 Sample_5        0      353           SMM    0         1        no     C2 wes
+6 Sample_6        0     3106           SMM    1         1        no     C2 wes
+
 MATRIX <- class$matrix[class$matrix$sample %in% CLINIC$sample, ]
 CLASS <- class$class[class$class$sample %in% CLINIC$sample, ]
+
 
 score <- genomic_score(
   MATRIX, CLINIC, CLASS,
@@ -47,7 +79,20 @@ score <- genomic_score(
   min_event_count = 3,
   output_dir = "SMM_GenomicScore/"
 )
+```
 
+```r
+head(score$score_df)
+#    sample genomic_score disease_stage cohort imwg
+#1 Sample_1             2           SMM     C1    2
+#2 Sample_2             0           SMM     C2    1
+#3 Sample_3             0           SMM     C2    0
+#4 Sample_4             0           SMM     C2    1
+#5 Sample_5             2          MGUS     C2 MGUS
+#6 Sample_6             0           SMM     C2    1
+```
+
+```r
 # 3. Cross-validation
 crossval_cindex(
   data = score$analysis_data,
@@ -55,6 +100,15 @@ crossval_cindex(
   k_folds = 5,
   fdr_threshold = 0.1
 )
+# $cindex_values
+# [1] 0.6258993 0.6760204 0.7547771 0.7770701 0.6490683
+
+# $selected_features
+# sig_feat_list
+#          CNV.Sig              MYC         SNV_NRAS CNV_Del_10q24.32      CNV.SNV_NF1     CNV.SNV_TET2              seq        SNV_FGFR3           APOBEC 
+#                5                5                5                3                3                3                3                2                1 
+#   CNV_chr15.gain   CNV_Del_2q31.1  CNV_Del_8q24.21   CNV.SNV_CREBBP   CNV.SNV_DNMT3A    CNV.SNV_NCOR1     CNV.SNV_POT1   CNV.SNV_TENT5C 
+#                1                1                1                1                1                1                1                1 
 ```
 
 ## 📂 Output Directory
