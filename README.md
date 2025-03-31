@@ -26,7 +26,7 @@ This R-based toolset includes three key functions to assist in classifying tumor
 
 ```r
 # 0. Initializing the functions
-source(".../SMM_functions/SMM_TnT_Cla.R")
+source(".../SMM_functions/TumorClassification.R")
 source(".../SMM_functions/SMM_score.R")
 source(".../SMM_functions/crossval_cindex.R")
 ```
