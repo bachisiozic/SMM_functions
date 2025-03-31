@@ -25,6 +25,13 @@ This R-based toolset includes three key functions to assist in classifying tumor
 ## 🔁 Pipeline Steps
 
 ```r
+# 0. Initializing the functions
+source(".../SMM_functions/SMM_TnT_Cla.R")
+source(".../SMM_functions/SMM_score.R")
+source(".../SMM_functions/crossval_cindex.R")
+```
+
+```r
 # 1. Tumor Classification
 class <- SMM_TnT_Cla(
   GC_input_matrix = "path/to/GenomicClassification_input_matrix_SMM_final.txt",
