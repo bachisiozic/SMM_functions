@@ -65,13 +65,13 @@ head(class$matrix)
 clinic <- read.delim("path/to/clinic_SMM_bac.txt", stringsAsFactors = FALSE)
 CLINIC <- clinic[complete.cases(clinic$pfs_code) & clinic$treatment == "no", ]
 head(CLINIC)
-    sample pfs_code pfs_time disease_stage imwg radiology treatment cohort seq
-1 Sample_1        0       14           SMM    2         1       yes     C1 wgs
-2 Sample_2        0     1818          MGUS MGUS         1        no     C2 wes
-3 Sample_3        0     1178           SMM    2         1        no     C2 wes
-4 Sample_4        0     1316           SMM    1         1        no     C2 wes
-5 Sample_5        0      353           SMM    0         1        no     C2 wes
-6 Sample_6        0     3106           SMM    1         1        no     C2 wes
+#    sample pfs_code pfs_time disease_stage imwg radiology treatment cohort seq
+#1 Sample_1        0       14           SMM    2         1       yes     C1 wgs
+#2 Sample_2        0     1818          MGUS MGUS         1        no     C2 wes
+#3 Sample_3        0     1178           SMM    2         1        no     C2 wes
+#4 Sample_4        0     1316           SMM    1         1        no     C2 wes
+#5 Sample_5        0      353           SMM    0         1        no     C2 wes
+#6 Sample_6        0     3106           SMM    1         1        no     C2 wes
 
 MATRIX <- class$matrix[class$matrix$sample %in% CLINIC$sample, ]
 CLASS <- class$class[class$class$sample %in% CLINIC$sample, ]
