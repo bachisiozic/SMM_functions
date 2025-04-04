@@ -161,12 +161,12 @@ SMM_TnT_Cla=function(GC_input_matrix,cyto,assembly) {
   genomics_check.3$non_canonical_driver_no_gains2=genomics_check.3$non_canonical_driver_no_gains - genomics_check.3$CNV.SNV_TGDS # we consider only one event in 13q
   #genomics_check.3[genomics_check.3$igh > 0 & genomics_check.3$non_canonical_driver_no_gains2 > 1,]$sample # or >2
   #genomics_check.3[genomics_check.3$hy > 0 & genomics_check.3$non_canonical_driver_no_gains2 > 1,]$sample #or >2
-  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$hy > 0 & (genomics_check.3$non_canonical_driver_no_gains2 > 2 |
-                                                                                               genomics_check.3$non_canonical_driver > 2))]="tumor"
-  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$igh > 0 & (genomics_check.3$non_canonical_driver_no_gains2 > 2 |
-                                                                                                genomics_check.3$non_canonical_driver > 2))]="tumor"
+  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$hy > 0 & (genomics_check.3$non_canonical_driver_no_gains2 > 1 |
+                                                                                               genomics_check.3$non_canonical_driver > 1))]="tumor"
+  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$igh > 0 & (genomics_check.3$non_canonical_driver_no_gains2 > 1 |
+                                                                                                genomics_check.3$non_canonical_driver > 1))]="tumor"
   #genomics_check.3[genomics_check.3$non_canonical_driver_no_gains2 > 2 & genomics_check.3$hy == 0 & genomics_check.3$igh == 0,]$sample
-  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$non_canonical_driver_no_gains2 > 2 & genomics_check.3$hy == 0 & genomics_check.3$igh == 0)]="tumor"
+  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$non_canonical_driver_no_gains2 > 1 & genomics_check.3$hy == 0 & genomics_check.3$igh == 0)]="tumor"
   
   ##### presence of >2 non canonical is tumor - sse above
   #### presence of 2 + HY and IGH 
@@ -179,8 +179,8 @@ SMM_TnT_Cla=function(GC_input_matrix,cyto,assembly) {
   
   genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$hy == 0 & genomics_check.3$igh == 0 & genomics_check.3$non_canonical_driver_no_gains %in% c(0,1,2))]="non_tumor"  #c(0,1,2)
   genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$hy == 0 & genomics_check.3$igh == 0 & genomics_check.3$non_canonical_driver_no_gains2 %in% c(0,1,2))]="non_tumor" #c(0,1,2)
-  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$hy > 0 &  genomics_check.3$non_canonical_driver_no_gains2 %in% c(1,0,2))]="non_tumor"
-  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$igh > 0 &  genomics_check.3$non_canonical_driver_no_gains2 %in% c(1,0,2))]="non_tumor"
+  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$hy > 0 &  genomics_check.3$non_canonical_driver_no_gains2 %in% c(1,0))]="non_tumor"
+  genomics_check.3$class.new[is.na(genomics_check.3$class.new) & (genomics_check.3$igh > 0 &  genomics_check.3$non_canonical_driver_no_gains2 %in% c(1,0))]="non_tumor"
   #table(genomics_check.3$class.new,useNA="ifany")
   # non_tumor     tumor     
   #        80        15      
