@@ -4,7 +4,7 @@ This R-based toolset includes two key functions to assist defining malignant tra
 
 ---
 
-## 📦 Included Functions
+## Included Functions
 
 1. **`genomic_score()`** – Compute the genomic drivers associated with progression.
 2. **`SMM_TnT_Cla()`** – Classify tumor vs. non-tumor samples from genomic features.
@@ -13,7 +13,7 @@ Help in `FUNCTIONS.md`
 
 ---
 
-## 🧪 Input Files
+## Input Files
 
 - `GC_input_matrix`: Genomic feature matrix (CNVs, SNVs, etc.) [https://github.com/UM-Myeloma-Genomics/GCP_MM]
 - `cyto`: Cytogenetic feature matrix
@@ -22,7 +22,7 @@ Help in `FUNCTIONS.md`
 
 ---
 
-## 🔁 Pipeline Steps
+## Pipeline Steps
 
 ```r
 # 0. Initializing the functions
