@@ -8,6 +8,7 @@ This R-based toolset includes two key functions to assist defining malignant tra
 
 1. **`genomic_score()`** – Compute the genomic drivers associated with progression.
 2. **`SMM_TnT_Cla()`** – Classify tumor vs. non-tumor samples from genomic features.
+
 Help in `FUNCTIONS.md`
 
 ---
