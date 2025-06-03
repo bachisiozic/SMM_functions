@@ -120,7 +120,7 @@ Please cite our work if you use this package in your research. [Add citation her
 
 ## 📬 Contact
 
-For questions or contributions, please open an issue or contact [your email / GitHub username].
+For questions or contributions, please open an issue or contact Bachisio Ziccheddu (bxz262@miami.edu) & Francesco Maura (mauraf@mskcc.org).
 
 
 
