@@ -10,7 +10,7 @@ This document describes the three core functions in the **SMM Genomic Classifier
 Classifies samples as `tumor` or `non_tumor` based on genomic and cytogenetic features, using rules informed by multiple myeloma progression biology.
 
 ```r
-result <- SMM_TnT_Cla(GC_input_matrix, cyto, assembly = "hg38")`
+result <- SMM_TnT_Cla(GC_input_matrix, cyto, sig.features=NULL, assembly = "hg38")`
 ```
 
 **Arguments**
@@ -20,6 +20,9 @@ result <- SMM_TnT_Cla(GC_input_matrix, cyto, assembly = "hg38")`
 
 - `cyto`: `data.frame` or `character`  
   A matrix or file containing cytogenetic information. Required columns: `sample`, `CCND3`, `CCND2`, `MAFA`, `MYC`, `hy`.
+
+- `sig.features`: `vector` or `character`  
+  A vector containing the prognostic drivers (obtained from the `2.SMM_score.R` function.
 
 - `assembly`: `character`  
   Genome build version. Accepts `"hg38"` or `"hg19"`. Determines the set of canonical features.
